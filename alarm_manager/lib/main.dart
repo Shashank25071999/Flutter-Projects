@@ -8,6 +8,7 @@ import 'package:audioplayers/audio_cache.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 
+
 void main() async {
   await AndroidAlarmManager.initialize();
   await AndroidAlarmManager.periodic(Duration(seconds: 10), 0, callback,wakeup: true,rescheduleOnReboot: true);
@@ -15,6 +16,8 @@ void main() async {
 }
 
 void callback() async {
+         AudioPlayer advancedPlayer;
+         advancedPlayer = await AudioCache().loop("audio.mp3");
 
   print("I am in the isolate");
   
