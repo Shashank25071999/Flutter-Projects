@@ -76,448 +76,444 @@ class FirstScreenState extends State<FirstScreen> {
         backgroundColor: Color.fromRGBO(116, 49, 155, 20),
         title: Text("Book"),
       ),
-      body: Column(
-        children: <Widget>[
-          SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Container(
-                  padding: EdgeInsets.only(
-                      top: 62.0, bottom: 42, left: 12.0, right: 12.0),
-                  child: Card(
-                    child: Row(
+      body: SingleChildScrollView(
+        child: Column(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(
+                  top: 42.0, bottom: 42, left: 12.0, right: 12.0),
+              child: Card(elevation: 15.0,
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                        padding: EdgeInsets.all(22.0),
+                        child: CircleAvatar(minRadius: 40.0,
+                          backgroundColor: Color.fromRGBO(116, 49, 155, 20),
+                        )),
+                    Column(
                       children: <Widget>[
-                        Container(
-                            padding: EdgeInsets.all(22.0),
-                            child: CircleAvatar(
-                              backgroundColor: Color.fromRGBO(116, 49, 155, 20),
-                            )),
-                        Column(
-                          children: <Widget>[
-                            Text("Name"),
-                            SizedBox(
-                              height: 5.0,
-                            ),
-                            Text("Name"),
-                            SizedBox(
-                              height: 5.0,
-                            ),
-                            Text("Name")
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "Timing",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20.0),
-                    ),
-                  ),
-                  padding: EdgeInsets.all(15.0),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Card(
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    timing = Text(
-                                      "2-4",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    val = 1;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15.0,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: val == 1
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('2-4')),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    timing = Text(
-                                      "4-6",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    val = 2;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15.0,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: val == 2
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('4-6')),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    timing = Text(
-                                      "6-8",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    val = 3;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15.0,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: val == 3
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0,
-                                      width: 50.0,
-                                      child: Center(child: Text('6-8')),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    timing = Text(
-                                      "8-10",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    val = 4;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15.0,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          // boxShadow: [
-                                          //   BoxShadow(
-                                          //     color: Colors.black,
-                                          //     spreadRadius: 200.0,
-                                          //   )
-                                          // ],
-                                          color: val == 4
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('8-10')),
-                                    ),
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
+                        Text("Swimming Pool",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0)),
+                        SizedBox(
+                          height: 5.0,
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    timing = Text(
-                                      "10-12",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    val = 5;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15.0,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: val == 5
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('10-12')),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    timing = Text(
-                                      "12-14",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    val = 6;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15.0,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: val == 6
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('12-14')),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    timing = Text(
-                                      "14-16",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    val = 7;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15.0,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: val == 7
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('14-16')),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    timing = Text(
-                                      "16-18",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    val = 8;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15.0,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: val == 8
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('16-18')),
-                                    ),
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "No of People",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 20.0),
-                    ),
-                  ),
-                  padding: EdgeInsets.all(15.0),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Card(
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    peoplevalue = Text(
-                                      "2-4",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    peoplelength = 1;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: peoplelength == 1
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('2-4')),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    peoplevalue = Text(
-                                      "4-6",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    peoplelength = 2;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: peoplelength == 2
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('4-6')),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    peoplevalue = Text(
-                                      "6-8",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    peoplelength = 3;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: peoplelength == 3
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('6-8')),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                  onTap: () {
-                                    peoplevalue = Text(
-                                      "8-10",
-                                      style: TextStyle(color: Colors.white),
-                                    );
-                                    peoplelength = 4;
-                                    boxcolor = Colors.lightGreen;
-                                    setState(() {});
-                                  },
-                                  child: Card(
-                                    elevation: 15,
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                          color: peoplelength == 4
-                                              ? boxcolor
-                                              : Colors.white,
-                                          border:
-                                              Border.all(color: Colors.black)),
-                                      height: 50.0, // height of the button
-                                      width: 50.0, // width of the button
-                                      child: Center(child: Text('8-10')),
-                                    ),
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
+                        Text("Timming 4-7",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0,color: Colors.grey),textAlign: TextAlign.left,),
+                        SizedBox(
+                          height: 5.0,
                         ),
+                        Text("Accomadation",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0))
                       ],
-                    ),
-                  ),
-                )
-              ],
+                    )
+                  ],
+                ),
+              ),
             ),
-          ),
-        ],
+            Container(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Timing",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 20.0),
+                ),
+              ),
+              padding: EdgeInsets.all(15.0),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Card(
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                timing = Text(
+                                  "2-4",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                val = 1;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: val == 1
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('2-4')),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                timing = Text(
+                                  "4-6",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                val = 2;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: val == 2
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('4-6')),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                timing = Text(
+                                  "6-8",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                val = 3;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: val == 3
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0,
+                                  width: 50.0,
+                                  child: Center(child: Text('6-8')),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                timing = Text(
+                                  "8-10",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                val = 4;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      // boxShadow: [
+                                      //   BoxShadow(
+                                      //     color: Colors.black,
+                                      //     spreadRadius: 200.0,
+                                      //   )
+                                      // ],
+                                      color: val == 4
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('8-10')),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                timing = Text(
+                                  "10-12",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                val = 5;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: val == 5
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('10-12')),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                timing = Text(
+                                  "12-14",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                val = 6;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: val == 6
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('12-14')),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                timing = Text(
+                                  "14-16",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                val = 7;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: val == 7
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('14-16')),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                timing = Text(
+                                  "16-18",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                val = 8;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15.0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: val == 8
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('16-18')),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Container(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "No of People",
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, fontSize: 20.0),
+                ),
+              ),
+              padding: EdgeInsets.all(15.0),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Card(
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                peoplevalue = Text(
+                                  "2-4",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                peoplelength = 1;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: peoplelength == 1
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('2-4')),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                peoplevalue = Text(
+                                  "4-6",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                peoplelength = 2;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: peoplelength == 2
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('4-6')),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                peoplevalue = Text(
+                                  "6-8",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                peoplelength = 3;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: peoplelength == 3
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('6-8')),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: GestureDetector(
+                              onTap: () {
+                                peoplevalue = Text(
+                                  "8-10",
+                                  style: TextStyle(color: Colors.white),
+                                );
+                                peoplelength = 4;
+                                boxcolor = Colors.lightGreen;
+                                setState(() {});
+                              },
+                              child: Card(
+                                elevation: 15,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      color: peoplelength == 4
+                                          ? boxcolor
+                                          : Colors.white,
+                                      border:
+                                          Border.all(color: Colors.black)),
+                                  height: 50.0, // height of the button
+                                  width: 50.0, // width of the button
+                                  child: Center(child: Text('8-10')),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
