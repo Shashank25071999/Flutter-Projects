@@ -90,18 +90,21 @@ class FirstScreenState extends State<FirstScreen> {
                         child: CircleAvatar(minRadius: 40.0,
                           backgroundColor: Color.fromRGBO(116, 49, 155, 20),
                         )),
-                    Column(
-                      children: <Widget>[
-                        Text("Swimming Pool",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0)),
-                        SizedBox(
-                          height: 5.0,
-                        ),
-                        Text("Timming 4-7",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0,color: Colors.grey),textAlign: TextAlign.left,),
-                        SizedBox(
-                          height: 5.0,
-                        ),
-                        Text("Accomadation",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0))
-                      ],
+                    Container(
+                      child: Column(
+                        children: <Widget>[
+                          Text("Swimming Pool",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0)),
+                          SizedBox(
+                            height: 5.0,
+                          ),
+                          Row(children: <Widget>[Icon(Icons.access_time),Text("5:00am-9:00pm")],),
+                          
+                          SizedBox(
+                            height: 5.0,
+                          ),
+                          Text("Occupancy",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,backgroundColor: Colors.lightGreen))
+                        ],
+                      ),
                     )
                   ],
                 ),
