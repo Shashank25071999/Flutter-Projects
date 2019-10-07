@@ -49,7 +49,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                 child: Column(
                   children: <Widget>[
                     Padding(
-                      padding: EdgeInsets.only(top: 18, right: 10, left: 40),
+                      padding: EdgeInsets.only(top: 28, right: 10, left: 40),
                       child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
@@ -66,7 +66,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(left:8.0,right: 2,top: 8,bottom:2),
                             child: GestureDetector(
                               onTap: () {
                                 val = 1;
@@ -100,7 +100,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                               child: Card(
                                 elevation: 5,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22.0),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Container(
                                   child: Center(
@@ -172,16 +172,16 @@ class ThirdScreenState extends State<ThirdScreen> {
                                     border: Border.all(color: Colors.grey),
                                     color:
                                         val == 1 ? selecteddate : Colors.white,
-                                    borderRadius: BorderRadius.circular(22.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   height: 150,
-                                  width: 150,
+                                  width: 160,
                                 ),
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(left:2.0,right: 8,bottom:2 ,top: 8),
                             child: GestureDetector(
                               onTap: () {
                                 val = 2;
@@ -215,7 +215,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                               child: Card(
                                 elevation: 5,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22.0),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 child: Container(
                                   child: Center(
@@ -287,10 +287,10 @@ class ThirdScreenState extends State<ThirdScreen> {
                                     border: Border.all(color: Colors.grey),
                                     color:
                                         val == 2 ? selecteddate : Colors.white,
-                                    borderRadius: BorderRadius.circular(22.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   height: 150,
-                                  width: 150,
+                                  width: 160,
                                 ),
                               ),
                             ),
@@ -306,7 +306,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(left:8.0,right: 2,top: 2,bottom: 2),
                             child: GestureDetector(
                               onTap: () {
                                 val = 3;
@@ -339,7 +339,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22.0),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 elevation: 5,
                                 child: Container(
@@ -412,16 +412,16 @@ class ThirdScreenState extends State<ThirdScreen> {
                                     border: Border.all(color: Colors.grey),
                                     color:
                                         val == 3 ? selecteddate : Colors.white,
-                                    borderRadius: BorderRadius.circular(22.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   height: 150,
-                                  width: 150,
+                                  width: 160,
                                 ),
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(right:8.0,top: 2,left: 2,bottom: 2),
                             child: GestureDetector(
                               onTap: () {
                                 val = 4;
@@ -454,7 +454,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22.0),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 elevation: 5,
                                 child: Container(
@@ -527,10 +527,10 @@ class ThirdScreenState extends State<ThirdScreen> {
                                     border: Border.all(color: Colors.grey),
                                     color:
                                         val == 4 ? selecteddate : Colors.white,
-                                    borderRadius: BorderRadius.circular(22.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   height: 150,
-                                  width: 150,
+                                  width: 160,
                                 ),
                               ),
                             ),
@@ -546,7 +546,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(left:8.0,right: 2,top: 2,bottom: 2),
                             child: GestureDetector(
                               onTap: () {
                                 val = 5;
@@ -579,7 +579,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22.0),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 elevation: 5,
                                 child: Container(
@@ -652,16 +652,16 @@ class ThirdScreenState extends State<ThirdScreen> {
                                     color:
                                         val == 5 ? selecteddate : Colors.white,
                                     border: Border.all(color: Colors.grey),
-                                    borderRadius: BorderRadius.circular(22.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   height: 150,
-                                  width: 150,
+                                  width: 160,
                                 ),
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(right:8.0,top: 2,bottom: 2,left: 2),
                             child: GestureDetector(
                               onTap: () {
                                 val = 6;
@@ -694,7 +694,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22.0),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 elevation: 5,
                                 child: Container(
@@ -767,10 +767,10 @@ class ThirdScreenState extends State<ThirdScreen> {
                                     color:
                                         val == 6 ? selecteddate : Colors.white,
                                     border: Border.all(color: Colors.grey),
-                                    borderRadius: BorderRadius.circular(22.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   height: 150,
-                                  width: 150,
+                                  width: 160,
                                 ),
                               ),
                             ),
@@ -786,7 +786,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(left:8.0,right: 2,top: 2,bottom: 2),
                             child: GestureDetector(
                               onTap: () {
                                 val = 7;
@@ -819,7 +819,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22.0),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 elevation: 5,
                                 child: Container(
@@ -892,16 +892,16 @@ class ThirdScreenState extends State<ThirdScreen> {
                                     color:
                                         val == 7 ? selecteddate : Colors.white,
                                     border: Border.all(color: Colors.grey),
-                                    borderRadius: BorderRadius.circular(22.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   height: 150,
-                                  width: 150,
+                                  width: 160,
                                 ),
                               ),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(right:8.0,top: 2,bottom: 2,left: 2),
                             child: GestureDetector(
                               onTap: () {
                                 val = 8;
@@ -934,7 +934,7 @@ class ThirdScreenState extends State<ThirdScreen> {
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(22.0),
+                                  borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 elevation: 5,
                                 child: Container(
@@ -1007,10 +1007,10 @@ class ThirdScreenState extends State<ThirdScreen> {
                                     color:
                                         val == 8 ? selecteddate : Colors.white,
                                     border: Border.all(color: Colors.grey),
-                                    borderRadius: BorderRadius.circular(22.0),
+                                    borderRadius: BorderRadius.circular(12.0),
                                   ),
                                   height: 150,
-                                  width: 150,
+                                  width: 160,
                                 ),
                               ),
                             ),

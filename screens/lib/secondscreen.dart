@@ -20,10 +20,10 @@ class SecondScreenState extends State<SecondScreen> {
         itemBuilder: (context, int index) {
           return Container(
             padding:
-                EdgeInsets.only(top: 8.0, bottom: 5, left: 8.0, right: 8.0),
+                EdgeInsets.only(top: 8.0, bottom: 2, left: 5.0, right: 5.0),
             child: Card(
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
+                borderRadius: BorderRadius.circular(12.0),
               ),
               elevation: 4.0,
               child: Padding(
@@ -43,7 +43,7 @@ class SecondScreenState extends State<SecondScreen> {
                         children: <Widget>[
                           Text("Swimming Pool",
                               style: TextStyle(
-                                  color: Colors.grey.shade700,
+                                  color: Colors.grey.shade800,
                                   fontWeight: FontWeight.bold,
                                   fontSize: 20.0)),
                           SizedBox(
@@ -53,8 +53,11 @@ class SecondScreenState extends State<SecondScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Icon(Icons.access_time),
-                              Text("5:00am-9:00pm")
+                              Icon(Icons.access_time,color: Colors.grey.shade500,),
+                              Padding(
+                                padding: const EdgeInsets.only(top:2.0,left: 2),
+                                child: Text("5:00am-9:00pm",style: TextStyle(color: Colors.grey.shade700),),
+                              )
                             ],
                           ),
                           SizedBox(
@@ -64,8 +67,11 @@ class SecondScreenState extends State<SecondScreen> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
-                              Icon(Icons.blur_linear),
-                              Text("150 Bookings")
+                              Icon(Icons.blur_linear,color: Colors.grey.shade500),
+                              Padding(
+                                padding: const EdgeInsets.only(top:2.0,left: 2),
+                                child: Text("150 Bookings",style: TextStyle(color: Colors.grey.shade700)),
+                              )
                             ],
                           ),
                           SizedBox(
@@ -79,7 +85,7 @@ class SecondScreenState extends State<SecondScreen> {
                                 borderRadius: BorderRadius.circular(40.0),
                               ),
                               padding: EdgeInsets.only(
-                                  left: 16.0, right: 16, top: 6, bottom: 6),
+                                  left: 20.0, right: 20, top: 2, bottom: 3),
                               child: Center(
                                 child: Text("Vacant",
                                     style: TextStyle(
@@ -99,8 +105,8 @@ class SecondScreenState extends State<SecondScreen> {
                           padding: const EdgeInsets.only(top:120.0,),
                           child: Row(
                             children: <Widget>[
-                              Text("Book",style: TextStyle(color: Color.fromRGBO(116, 49, 155, 20) ),),
-                              Icon(Icons.play_circle_outline,color:  Color.fromRGBO(116, 49, 155, 20),)
+                              Text("Book",style: TextStyle(color: Color.fromRGBO(116, 49, 155, 20),fontSize: 15 ),),
+                              Icon(Icons.play_arrow,color:  Color.fromRGBO(116, 49, 155, 20),)
                             ],
                           ),
                         )
