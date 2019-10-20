@@ -1,3 +1,4 @@
+import 'package:conexio/remarkofsociety.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
@@ -14,12 +15,17 @@ class ListInfo extends StatefulWidget {
 }
 
 class ListInfoState extends State<ListInfo> {
+  
+  ListInfoState(this.responsedata);
+  var responsedata;
   void initState(){
     super.initState();
     societydata();
   }
   bool pageloading=true;
   var responsedata2;
+  var societyid;
+  
   Future<void> societydata() async {
     Map<String, dynamic> credentials = {
       "token": "conexo",
@@ -32,6 +38,7 @@ class ListInfoState extends State<ListInfo> {
           "Content-Type": "application/json"
         }).then((http.Response response) {
       responsedata2 = json.decode(response.body);
+       societyid=responsedata2[0]["society_id"];
       setState(() {
        pageloading=false; 
       });
@@ -39,14 +46,16 @@ class ListInfoState extends State<ListInfo> {
     });
   }
 
-  ListInfoState(this.responsedata);
-  var responsedata;
+  
+  
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return pageloading?Scaffold(body: Center(
       child: CircularProgressIndicator(),
-    ),):Scaffold(
+    ),):Scaffold(floatingActionButton: FloatingActionButton(backgroundColor:  Color.fromRGBO(116, 49, 155, 20),child: Icon(Icons.add),onPressed: (){
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>RemarkOfSociety(societyid,societydata)));
+    },),
         appBar: AppBar(
           backgroundColor: Color.fromRGBO(116, 49, 155, 20),
           title: Text("Details"),
@@ -84,11 +93,28 @@ class ListInfoState extends State<ListInfo> {
                                 borderRadius: BorderRadius.circular(12),
                                 color: Colors.grey),
                             child: Text(
-                              "No Of Flats: ",
+                              "Coordinates: ",
                               style: TextStyle(),
                             ),
                           ),
-                          Text("   ${responsedata["no_of_flats"]}"),
+                          Text("   ${responsedata["coordinates"]}"),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12),
+                                color: Colors.grey),
+                            child: Text(
+                              "Status: ",
+                              style: TextStyle(),
+                            ),
+                          ),
+                          Text("   ${responsedata["status"]}"),
                         ],
                       ),
                     ),
@@ -109,40 +135,23 @@ class ListInfoState extends State<ListInfo> {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: Colors.grey),
-                            child: Text(
-                              "No Of Flats: ",
-                              style: TextStyle(),
-                            ),
-                          ),
-                          Text("   ${responsedata["no_of_flats"]}"),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        children: <Widget>[
-                          Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12),
-                                color: Colors.grey),
-                            child: Text(
-                              "No Of Flats: ",
-                              style: TextStyle(),
-                            ),
-                          ),
-                          Text("   ${responsedata["no_of_flats"]}"),
-                        ],
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.all(8.0),
+                    //   child: Row(
+                    //     children: <Widget>[
+                    //       Container(
+                    //         decoration: BoxDecoration(
+                    //             borderRadius: BorderRadius.circular(12),
+                    //             color: Colors.grey),
+                    //         child: Text(
+                    //           "No Of Flats: ",
+                    //           style: TextStyle(),
+                    //         ),
+                    //       ),
+                    //       Text("   ${responsedata["no_of_flats"]}"),
+                    //     ],
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
@@ -173,7 +182,7 @@ class ListInfoState extends State<ListInfo> {
                                     style: TextStyle(),
                                   ),
                                 ),
-                            Expanded(child:    Text("dsfhbdsjhgbfvjlhbmnvbs k bhB GJB gb bG SDGKJDGKJSFBGBBADFJGB ABG  KHs"),)
+                            Expanded(child:    Text(responsedata2[index]["text"]),)
                               ],
                             ),
                             SizedBox(height: 10.0),

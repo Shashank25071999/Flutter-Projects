@@ -50,12 +50,12 @@ class HomeState extends State<Home> {
       setState(() {
         isloading = false;
       });
-      print(data);
-      print(responsedata.length);
-      print(societyname);
+      // print(data);
+      // print(responsedata.length);
+      // print(societyname);
       print(responsedata);
     });
-    print("shashank");
+    // print("shashank");
   }
 
   void initState() {
@@ -73,7 +73,7 @@ class HomeState extends State<Home> {
             ),
           )
         : Scaffold(
-          floatingActionButton: FloatingActionButton(child:Icon(Icons.add) ,onPressed: (){
+          floatingActionButton: FloatingActionButton(backgroundColor: Color.fromRGBO(116, 49, 155, 20),child:Icon(Icons.add) ,onPressed: (){
             Navigator.push(context,MaterialPageRoute(builder: (context)=>InsertSocietyDetails(memberid)));
               
           },),
@@ -151,7 +151,7 @@ class HomeState extends State<Home> {
                 return Card(
                     child: ListTile(
                         onTap: () {
-                          print("ullu");
+                          
                           var data = responsedata[index];
                           print(data);
                           print(index);

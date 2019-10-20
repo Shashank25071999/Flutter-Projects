@@ -39,37 +39,29 @@ final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
       _counter++;
     });
   }
-  void initState(){
+  
+   @override
+  void initState() {
     super.initState();
     _firebaseMessaging.configure(
-        onMessage: (Map<String, dynamic> message) async { 
-         print("onMessage: $message");
-         
-       },
-        onResume: (Map<String, dynamic> message) async {
-         print("onMessage: $message");
-         
-       },
-        onLaunch: (Map<String, dynamic> message) async {
-         print("onMessage: $message");
-         
-       },
+      onMessage: (Map<String, dynamic> message) {
+        print('on message $message');
+    
+      },
+      onResume: (Map<String, dynamic> message) {
+        print('on resume $message');
+        
+      },
+      onLaunch: (Map<String, dynamic> message) {
+        print('on launch $message');
+        
+      },
     );
     _firebaseMessaging.requestNotificationPermissions(
-      IosNotificationSettings(
-        sound: true,
-        alert: true,
-        badge: true
-      )
-    );
-    _firebaseMessaging.onIosSettingsRegistered.listen((IosNotifcationSetting){
-        print("reguserter");
-    });
+        const IosNotificationSettings(sound: true, badge: true, alert: true));
     _firebaseMessaging.getToken().then((token){
-      update(token);
-      print("token:$token");
-      
-    }); 
+      print(token);
+    });
   }
   update(String token){
     

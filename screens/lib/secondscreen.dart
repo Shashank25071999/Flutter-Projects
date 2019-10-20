@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class SecondScreen extends StatefulWidget {
   @override
@@ -9,6 +12,29 @@ class SecondScreen extends StatefulWidget {
 }
 
 class SecondScreenState extends State<SecondScreen> {
+   void initState() {
+    super.initState();
+    
+    getData();
+  }
+  
+ 
+
+
+  Future<void> getData() async {
+    Map<String, dynamic> societydata = {
+      "token": "conexo",
+      "society_id": "1"
+    };
+    http.post(
+        "http://conexo.in/main/conexo/public/index.php/api/customer/amenitieslist",
+        body: json.encode(societydata),
+        headers: {
+          "Content-Type": "application/json"
+        }).then((http.Response response) {
+            print(response.body);
+    });
+  }
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -49,6 +75,9 @@ class SecondScreenState extends State<SecondScreen> {
                           SizedBox(
                             height: 5.0,
                           ),
+                          // RaisedButton(onPressed: (){
+                          //   getData();
+                          // },),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,

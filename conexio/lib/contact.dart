@@ -3,6 +3,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'contactdetailssociety.dart';
+
 class ContactDetail extends StatefulWidget {
   ContactDetail(this.societyid);
   String societyid;
@@ -53,7 +55,9 @@ class ContactDetailState extends State<ContactDetail> {
             body: Center(
             child: CircularProgressIndicator(),
           ))
-        : Scaffold(
+        : Scaffold(floatingActionButton: FloatingActionButton(child: Icon(Icons.add),onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>ContactDetailsOfSociety(societyid,societycontactdata)));
+        },backgroundColor: Color.fromRGBO(116, 49, 155, 20),),
             appBar: AppBar(
               title: Text("Contact Details"),
               backgroundColor: Color.fromRGBO(116, 49, 155, 20),
