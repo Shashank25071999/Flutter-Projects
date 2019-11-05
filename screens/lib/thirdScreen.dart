@@ -1,26 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
+import 'package:screens/main.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 class ThirdScreen extends StatefulWidget {
+  var timing;
+  String nameofativity;var member;
+  ThirdScreen(this.timing,this.nameofativity,this.member);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return ThirdScreenState();
+    return ThirdScreenState(timing,nameofativity,member);
   }
 }
+
+class TimeSlotData{
+  String time_slot;
+  String total_booked;
+  String booking_date;
+}
+
 
 DateTime now = DateTime.now();
 String string = DateFormat('dd').format(now);
 String string1 = DateFormat('MM').format(now);
 String string2 = DateFormat('yyyy').format(now);
-
+var userselectedDate;
 int date = int.parse(string);
 int month = int.parse(string1);
 int year = int.parse(string2);
 String selecteddatevalue="Selected";
+List<TimeSlotData> timeslotdata=[];
 
 class ThirdScreenState extends State<ThirdScreen> {
+  var timing;
+  String dateselcted;
+  bool progressindicator=false;
+  String nameofativity;var member;
+  ThirdScreenState(this.timing,this.nameofativity,this.member);
   List<int> montharray = [];
+  List<String>datestringarray=[];
+  List<String>monthstringarray=[];
   List<int> datearray = [];
   List<int> yeararray = [];
   Color selecteddate = Colors.orangeAccent;
@@ -29,8 +49,46 @@ class ThirdScreenState extends State<ThirdScreen> {
   @override
   void initState() {
     day(date, month, year);
+    
     super.initState();
   }
+
+    Future<void> slotbooking() async {
+    progressindicator=true;
+    setState(() {
+      
+    });
+    print(dateselcted);
+    Map<String, dynamic> societydata = {
+      "token":"conexo",
+      "society_code":"1",
+      "amenity_id":member.aminityid,
+      "booking_date":"07/10/2019"
+      //dateselcted
+    };
+    http.post(
+        "http://conexo.in/main/conexo/public/index.php/api/customer/slotavalibility",
+        body: json.encode(societydata),
+        headers: {
+          "Content-Type": "application/json"
+        }).then((http.Response response) {
+            print(response.body);
+           var responsebody=json.decode(response.body);
+           print(responsebody.length);
+             for(int i =0;i<responsebody.length;i++){
+
+             }
+
+             progressindicator=false;
+             setState(() {
+               
+             });
+             Navigator.push(context, MaterialPageRoute(builder: (context)=>FirstScreen(timing,nameofativity,member)));
+
+    });
+  }
+  
+
 
   @override
   Widget build(BuildContext context) {
@@ -69,6 +127,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                             padding: const EdgeInsets.only(left:8.0,right: 2,top: 8,bottom:2),
                             child: GestureDetector(
                               onTap: () {
+                                dateselcted=datestringarray[0].toString()+"/"+monthstringarray[0].toString()+"/"+yeararray[0].toString();
+                                print(dateselcted);
                                 val = 1;
                                 selecteddatevalue=datearray[0].toString() + ( montharray[0] == 1
                                             ? " Jan' "
@@ -95,7 +155,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                                                                             : montharray[0] == 10
                                                                                 ? " Oct' "
                                                                                 : montharray[0] == 11 ? " Nov' " : montharray[0] == 12 ? " Dec' " : "selected") + yeararray[0].toString();
-                                setState(() {});
+                                setState(() {userselectedDate=selecteddatevalue;
+                                print(userselectedDate);});
                               },
                               child: Card(
                                 elevation: 5,
@@ -184,6 +245,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                             padding: const EdgeInsets.only(left:2.0,right: 8,bottom:2 ,top: 8),
                             child: GestureDetector(
                               onTap: () {
+                                dateselcted=datestringarray[1].toString()+"/"+monthstringarray[1].toString()+"/"+yeararray[1].toString();
+                                print(dateselcted);
                                 val = 2;
                                   selecteddatevalue=datearray[1].toString() + ( montharray[1] == 1
                                             ? " Jan' "
@@ -210,7 +273,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                                                                             : montharray[1] == 10
                                                                                 ? " Oct' "
                                                                                 : montharray[1] == 11 ? " Nov' " : montharray[1] == 12 ? " Dec' " : "NOtselected") + yeararray[0].toString();
-                                setState(() {});
+                                setState(() {userselectedDate=selecteddatevalue;
+                                print(userselectedDate);});
                               },
                               child: Card(
                                 elevation: 5,
@@ -309,6 +373,9 @@ class ThirdScreenState extends State<ThirdScreen> {
                             padding: const EdgeInsets.only(left:8.0,right: 2,top: 2,bottom: 2),
                             child: GestureDetector(
                               onTap: () {
+                                dateselcted=datestringarray[2].toString()+"/"+monthstringarray[2].toString()+"/"+yeararray[2].toString();
+                                print(dateselcted);
+                                
                                 val = 3;
                                   selecteddatevalue=datearray[2].toString() + ( montharray[2] == 1
                                             ? " Jan' "
@@ -335,7 +402,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                                                                             : montharray[2] == 10
                                                                                 ? " Oct' "
                                                                                 : montharray[2] == 11 ? " Nov' " : montharray[2] == 12 ? " Dec' " : "NOtselected") + yeararray[0].toString();
-                                setState(() {});
+                                setState(() {userselectedDate=selecteddatevalue;
+                                print(userselectedDate);});
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
@@ -424,6 +492,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                             padding: const EdgeInsets.only(right:8.0,top: 2,left: 2,bottom: 2),
                             child: GestureDetector(
                               onTap: () {
+                                dateselcted=datestringarray[3].toString()+"/"+monthstringarray[3].toString()+"/"+yeararray[3].toString();
+                                print(dateselcted);
                                 val = 4;
                                   selecteddatevalue=datearray[3].toString() + ( montharray[3] == 1
                                             ? " Jan' "
@@ -450,7 +520,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                                                                             : montharray[3] == 10
                                                                                 ? " Oct' "
                                                                                 : montharray[3] == 11 ? " Nov' " : montharray[3] == 12 ? " Dec' " : "NOtselected") + yeararray[0].toString();
-                                setState(() {});
+                                setState(() {userselectedDate=selecteddatevalue;
+                                print(userselectedDate);});
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
@@ -549,6 +620,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                             padding: const EdgeInsets.only(left:8.0,right: 2,top: 2,bottom: 2),
                             child: GestureDetector(
                               onTap: () {
+                                dateselcted=datestringarray[4].toString()+"/"+monthstringarray[4].toString()+"/"+yeararray[4].toString();
+                                print(dateselcted);
                                 val = 5;
                                   selecteddatevalue=datearray[4].toString() + ( montharray[4] == 1
                                             ? " Jan' "
@@ -575,7 +648,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                                                                             : montharray[4] == 10
                                                                                 ? " Oct' "
                                                                                 : montharray[4] == 11 ? " Nov' " : montharray[4] == 12 ? " Dec' " : "NOtselected") + yeararray[0].toString();
-                                setState(() {});
+                                setState(() {userselectedDate=selecteddatevalue;
+                                print(userselectedDate);});
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
@@ -664,6 +738,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                             padding: const EdgeInsets.only(right:8.0,top: 2,bottom: 2,left: 2),
                             child: GestureDetector(
                               onTap: () {
+                                dateselcted=datestringarray[5].toString()+"/"+monthstringarray[5].toString()+"/"+yeararray[5].toString();
+                                print(dateselcted);
                                 val = 6;
                                   selecteddatevalue=datearray[5].toString() + ( montharray[5] == 1
                                             ? " Jan' "
@@ -690,7 +766,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                                                                             : montharray[5] == 10
                                                                                 ? " Oct' "
                                                                                 : montharray[5] == 11 ? " Nov' " : montharray[5] == 12 ? " Dec' " : "NOtselected") + yeararray[0].toString();
-                                setState(() {});
+                                setState(() {userselectedDate=selecteddatevalue;
+                                print(userselectedDate);});
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
@@ -789,6 +866,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                             padding: const EdgeInsets.only(left:8.0,right: 2,top: 2,bottom: 2),
                             child: GestureDetector(
                               onTap: () {
+                                dateselcted=datestringarray[6].toString()+"/"+monthstringarray[6].toString()+"/"+yeararray[6].toString();
+                                print(dateselcted);
                                 val = 7;
                                   selecteddatevalue=datearray[6].toString() + ( montharray[6] == 1
                                             ? " Jan' "
@@ -815,7 +894,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                                                                             : montharray[6] == 10
                                                                                 ? " Oct' "
                                                                                 : montharray[6] == 11 ? " Nov' " : montharray[6] == 12 ? " Dec' " : "NOtselected") + yeararray[0].toString();
-                                setState(() {});
+                                setState(() {userselectedDate=selecteddatevalue;
+                                print(userselectedDate);});
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
@@ -904,6 +984,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                             padding: const EdgeInsets.only(right:8.0,top: 2,bottom: 2,left: 2),
                             child: GestureDetector(
                               onTap: () {
+                                dateselcted=datestringarray[7].toString()+"/"+monthstringarray[7].toString()+"/"+yeararray[7].toString();
+                                print(dateselcted);
                                 val = 8;
                                   selecteddatevalue=datearray[7].toString() + ( montharray[7] == 1
                                             ? " Jan' "
@@ -930,7 +1012,8 @@ class ThirdScreenState extends State<ThirdScreen> {
                                                                             : montharray[7] == 10
                                                                                 ? " Oct' "
                                                                                 : montharray[7] == 11 ? " Nov' " : montharray[7] == 12 ? " Dec' " : "NOtselected") + yeararray[0].toString();
-                                setState(() {});
+                                setState(() {userselectedDate=selecteddatevalue;
+                                print(userselectedDate);});
                               },
                               child: Card(
                                 shape: RoundedRectangleBorder(
@@ -1067,33 +1150,43 @@ class ThirdScreenState extends State<ThirdScreen> {
                           Padding(
                             padding: EdgeInsets.only(
                                 left: MediaQuery.of(context).size.width / 9),
-                            child: GestureDetector(
-                              onTap: () {
-                                print("object");
-                              },
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.white),
-                                  borderRadius: BorderRadius.circular(40.0),
-                                ),
-                                child: Row(
-                                  children: <Widget>[
-                                    Padding(
-                                      padding: const EdgeInsets.all(10.0),
-                                      child: Text("Book Now",
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.bold)),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                          left: 4.0, right: 4.0),
-                                      child: Icon(
-                                        Icons.play_arrow,
-                                        color: Colors.white,
+                            child: Builder(
+                              builder: (context) => GestureDetector(
+                                onTap: () {
+                                  print("object");
+                                  if(dateselcted==null){
+                                    _displaySnackBar(context, "Please select a date");
+                                  }
+                                  else{
+                                    slotbooking();
+                                  }
+                                  
+                                  
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(color: Colors.white),
+                                    borderRadius: BorderRadius.circular(40.0),
+                                  ),
+                                  child: Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.all(10.0),
+                                        child: Text("Book Now",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontWeight: FontWeight.bold)),
                                       ),
-                                    )
-                                  ],
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 4.0, right: 4.0),
+                                        child: Icon(
+                                          Icons.play_arrow,
+                                          color: Colors.white,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
@@ -1110,19 +1203,36 @@ class ThirdScreenState extends State<ThirdScreen> {
   }
 
   void day(int date, int month, int year) {
-    print(year);
+  //   for(int i=0,j=1;j<timing.length;i++,j++){
+  //   var start=timing[i];
+  //   var stop =timing[j];
+    
+  //   var total=(stop-start)/2;
+  //   for(int i=start;i<stop;i=i+2){
+  //     print(i);
+  //     if(i+2<=stop){
+  //       print(i+2);
+  //     }
+  //     else{
+  //       print(i+1);
+  //     }
+      
+      
+  //   }
+  // }
+    // print(year);
     if (year % 400 == 0) {
-      print("leap year");
+      // print("leap year");
       leapyear = true;
     } else if (year % 100 == 0) {
-      print("not leap year");
+      // print("not leap year");
       leapyear = false;
     } else if (year % 4 == 0 && year % 100 != 0) {
-      print("leap year");
+      // print("leap year");
       leapyear = true;
     } else {
       leapyear = false;
-      print("not leap year");
+      // print("not leap year");
     }
     // months in which 31 days are present
     if (month == 1 ||
@@ -1228,10 +1338,46 @@ class ThirdScreenState extends State<ThirdScreen> {
       }
     }
 
-    for (int i = 0; i < datearray.length; i++) {
-      print(datearray[i]);
-      print(montharray[i]);
-      print("\n");
-    }
+    // for (int i = 0; i < datearray.length; i++) {
+    //   print(datearray[i]);
+    //   print(montharray[i]);
+    //   print("\n");
+    // }
+
+    inttoString();
   }
+
+  void inttoString(){
+
+    for(int i=0;i<montharray.length;i++){
+
+      var stringmonthtype=montharray[i].toString();
+      var stringdatetype=datearray[i].toString();
+
+
+      if(stringmonthtype.length==1){
+        stringmonthtype="0"+stringmonthtype;
+        monthstringarray.add(stringmonthtype);
+      }
+      else{
+        monthstringarray.add(stringmonthtype);
+      }
+
+      if(stringdatetype.length==1){
+        stringdatetype="0"+stringdatetype;
+        datestringarray.add(stringdatetype);
+      }
+      else{
+        datestringarray.add(stringdatetype);
+      }
+    }
+
+    
+
+  }
+
+  _displaySnackBar(BuildContext context,String a) {
+  final snackBar = SnackBar(content: Text(a));
+  Scaffold.of(context).showSnackBar(snackBar);
+}
 }
