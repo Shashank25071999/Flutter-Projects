@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 
 
 class DrawerExample extends StatefulWidget{
+    int index;
+    DrawerExample(this.index);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return DrawerExampleState();
+    return DrawerExampleState(index);
     throw UnimplementedError();
   }
 }
 
 class DrawerExampleState extends State<DrawerExample>{
-
+  int index;
+  DrawerExampleState(this.index);
     List<DrawerItem> listpages = [
         
         DrawerItem(
@@ -38,6 +41,11 @@ class DrawerExampleState extends State<DrawerExample>{
 
     
   ];
+  List<Widget> pages=[Scaffold(backgroundColor: Colors.green,),
+  Scaffold(backgroundColor: Colors.pink,),
+  Scaffold(backgroundColor: Colors.purple,),
+  Scaffold(backgroundColor: Colors.blue,),
+  Scaffold(backgroundColor: Colors.brown,)];
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -51,6 +59,6 @@ class DrawerExampleState extends State<DrawerExample>{
         ),
                 ),
                 drawer: Stack(children:[ CurvedDrawer(items: listpages)]),
-                body: Container(child: Center(child: Text("data"),),),);
+                body: pages[index],);
   }
 }

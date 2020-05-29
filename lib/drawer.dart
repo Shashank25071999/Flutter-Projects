@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:drawer/src/drawer_custom_painter.dart';
 import 'package:drawer/src/drawer_nav_item.dart';
 
+import 'drawerexample.dart';
+
 // import 'package:flutter/material.dart';
 // import 'package:saksham/aboutus/about.dart';
 // import 'package:saksham/home/homepage.dart';
@@ -40,8 +42,7 @@ class CurvedDrawer extends StatefulWidget {
 
   CurvedDrawer(
       {Key key,
-     @required 
-this.items,
+      @required this.items,
       //default select first item
       this.index = 0,
       this.color = Colors.white,
@@ -52,7 +53,7 @@ this.items,
       this.animationCurve = Curves.easeOut,
       this.animationDuration = const Duration(milliseconds: 600),
       this.width = 75,
-      this.title="drawer",
+      this.title = "drawer",
       this.isEndDrawer = false})
       : assert(items != null),
         assert(items.length >= 1),
@@ -66,35 +67,16 @@ this.items,
 
 class _CurvedDrawerState extends State<CurvedDrawer>
     with SingleTickerProviderStateMixin {
-
-      List<DrawerItem> listpages = [
-        
-        DrawerItem(
-          icon: Icon(Icons.library_books),
-          label:"News"
-        ),
-        DrawerItem(
-          icon: Icon(Icons.calendar_today),
-          label: "Schedule"
-        ),
-         DrawerItem(
-          icon: Icon(Icons.home),
-          label:"Home"
-        ),
-         DrawerItem(
-          icon: Icon(Icons.person_add),
-          label:"Register"
-        ),
-        DrawerItem(
-          icon: Icon(Icons.people),
-          label:"About Us"
-        ),
-
-    
+  List<DrawerItem> listpages = [
+    DrawerItem(icon: Icon(Icons.library_books), label: "News"),
+    DrawerItem(icon: Icon(Icons.calendar_today), label: "Schedule"),
+    DrawerItem(icon: Icon(Icons.home), label: "Home"),
+    DrawerItem(icon: Icon(Icons.person_add), label: "Register"),
+    DrawerItem(icon: Icon(Icons.people), label: "About Us"),
   ];
 
   double _startingPos;
-  int _endingIndex = 0;
+  int _endingIndex;
   double _pos;
   double _buttonHide = 0;
   DrawerNavItem _icon;
@@ -104,14 +86,14 @@ class _CurvedDrawerState extends State<CurvedDrawer>
   //List<DrawerNavItem> _items;
   List<DrawerNavItem> _items = [];
 
-   int selectedIndex = 2;
+  int selectedIndex = 2;
   List<Widget> abc = [
-  //   News(),
-  //   Schedule(),
-  //  Home(),
-    
-  //   Register(),
-  //   AboutUs()
+    //   News(),
+    //   Schedule(),
+    //  Home(),
+
+    //   Register(),
+    //   AboutUs()
   ];
 
   @override
@@ -126,6 +108,7 @@ class _CurvedDrawerState extends State<CurvedDrawer>
     //     size: widget.width / 3,
     //   );
     // }).toList();
+     _endingIndex=widget.index;
     widget.items.forEach((item) {
       _items.add(DrawerNavItem(
         icon: item.icon,
@@ -173,89 +156,83 @@ class _CurvedDrawerState extends State<CurvedDrawer>
     super.dispose();
   }
 
- 
-
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
       width: widget.width,
       color: Colors.purpleAccent,
-      child: 
-                      //  appBar: AppBar(
-                      //   title: Text('Drawer')
-                      //  ),
-              Scaffold(
-                backgroundColor: Colors.purpleAccent,
-                
-                              body: Stack(
+      child:
+          //  appBar: AppBar(
+          //   title: Text('Drawer')
+          //  ),
+          Scaffold(
+        backgroundColor: Colors.purpleAccent,
+        body: Stack(
             overflow: Overflow.visible,
-            alignment:
-                    widget.isEndDrawer ? Alignment.centerRight : Alignment.centerLeft,
+            alignment: widget.isEndDrawer
+                ? Alignment.centerRight
+                : Alignment.centerLeft,
             children: <Widget>[
-              
-                  Positioned(
-                    left: widget.isEndDrawer
-                        ? null
-                        : -widget.width * 0.6 - (75.0 - widget.width),
-                    right: widget.isEndDrawer
-                        ? -widget.width * 0.6 - (75.0 - widget.width)
-                        : null,
-                    top: _pos * size.height,
-                    height: size.height / _length,
-                    child: Center(
-                        child: Transform.translate(
-                            offset: Offset(
-                              _isEnd *
-                                  (1 - _buttonHide) *
-                                  (75 + (widget.width * 0.2)),
-                              0,
-                            ),
-                            child: _icon)),
-                  ),
-                  Positioned(
-                      top: 0,
-                      height: size.height,
-                      left: widget.isEndDrawer ? null : 0,
-                      right: widget.isEndDrawer ? 0 : null,
-                      width: widget.width,
-                      child: CustomPaint(
-                          painter: DrawerCustomPainter(
-                              _pos,
-                              _length,
-                              widget.color,
-                              Directionality.of(context),
-                              widget.width,
-                              widget.isEndDrawer),
-                          child:
-                              Container(width: widget.width, height: size.height))),
-                  Positioned(
-                    top: 0,
-                    bottom: 0,
-                    left: widget.isEndDrawer ? null : 0,
-                    right: widget.isEndDrawer ? 0 : null,
-                    child: SizedBox(
-                        width: widget.width * 1.25,
-                        child: Column(
-                            children: _items.map((item) {
-                          return NavButton(
-                            onTap: _buttonTap,
-                            position: _pos,
-                            length: _length,
-                            isEndDrawer: widget.isEndDrawer,
-                            width: widget.width,
-                            color: widget.labelColor,
-                            index: _items.indexOf(item),
-                            icon: item.icon,
-                          );
-                        }).toList())),
-                  ),
-            ]),
+              Positioned(
+                left: widget.isEndDrawer
+                    ? null
+                    : -widget.width * 0.6 - (75.0 - widget.width),
+                right: widget.isEndDrawer
+                    ? -widget.width * 0.6 - (75.0 - widget.width)
+                    : null,
+                top: _pos * size.height,
+                height: size.height / _length,
+                child: Center(
+                    child: Transform.translate(
+                        offset: Offset(
+                          _isEnd *
+                              (1 - _buttonHide) *
+                              (75 + (widget.width * 0.2)),
+                          0,
+                        ),
+                        child: _icon)),
               ),
-             
-      );
-    
+              Positioned(
+                  top: 0,
+                  height: size.height,
+                  left: widget.isEndDrawer ? null : 0,
+                  right: widget.isEndDrawer ? 0 : null,
+                  width: widget.width,
+                  child: CustomPaint(
+                      painter: DrawerCustomPainter(
+                          _pos,
+                          _length,
+                          widget.color,
+                          Directionality.of(context),
+                          widget.width,
+                          widget.isEndDrawer),
+                      child:
+                          Container(width: widget.width, height: size.height))),
+              Positioned(
+                top: 0,
+                bottom: 0,
+                left: widget.isEndDrawer ? null : 0,
+                right: widget.isEndDrawer ? 0 : null,
+                child: SizedBox(
+                    width: widget.width * 1.25,
+                    child: Column(
+                        children: _items.map((item) {
+                      return NavButton(
+                        onTap: _buttonTap,
+                        position: _pos,
+                        length: _length,
+                        isEndDrawer: widget.isEndDrawer,
+                        width: widget.width,
+                        color: widget.labelColor,
+                        index: _items.indexOf(item),
+                        icon: item.icon,
+                      );
+                    }).toList())),
+              ),
+            ]),
+      ),
+    );
   }
 
   void setPage(int index) {
@@ -266,7 +243,7 @@ class _CurvedDrawerState extends State<CurvedDrawer>
     if (widget.onTap != null) {
       widget.onTap(index);
       // setState(() {
-      //      selectedIndex = index; 
+      //      selectedIndex = index;
       //     });
     }
     final newPosition = index / _length;
@@ -275,6 +252,10 @@ class _CurvedDrawerState extends State<CurvedDrawer>
       _endingIndex = index;
       _animationController.animateTo(newPosition,
           duration: widget.animationDuration, curve: widget.animationCurve);
+    });
+    Future.delayed(const Duration(milliseconds: 600), () {
+      Navigator.pushReplacement(context,
+          MaterialPageRoute(builder: (context) => DrawerExample(index)));
     });
   }
 }
